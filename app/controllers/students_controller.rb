@@ -21,7 +21,7 @@ class StudentsController < ApplicationController
 
   	def export_list
   		students = []
-      	file_name = "student-"+".csv"
+      	file_name = "student-#{Time.now}.csv"
         @students = Student.all
       	@students.all.each do |u|
 	        data = {first_name: u.first_name, last_name: u.last_name,email: u.email,dob: u.dob,number: u.number,specialization: u.specialization,current_year: u.current_year,graduate_year: u.graduate_year}
@@ -39,6 +39,8 @@ class StudentsController < ApplicationController
 			       attributes[3]  = student.values[3]
 			       attributes[4]  = student.values[4]
 			       attributes[5]  = student.values[5]
+			       attributes[6]  = student.values[6]
+			       attributes[7]  = student.values[7]
 
 			       csv << attributes
 		   		end
