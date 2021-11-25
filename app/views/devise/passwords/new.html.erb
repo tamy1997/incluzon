@@ -1,0 +1,22 @@
+<h2>Forgot your password?</h2><br><br>
+
+<%#= render "devise/shared/links" %>
+<div class="container">
+	<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+		<%= render "devise/shared/error_messages", resource: resource %>
+
+<%#= render "devise/shared/error_messages", resource: resource %>
+	<div class="row">
+  		<div class="col-12 col-md-6 mb-4">
+  				<%=f.label :email%>
+    			<%= f.email_field :email,class: "form-control" ,placeholder: "Email*", 'aria-label': "College Name", :required => true%>
+    	</div>
+      	
+    <%#= error_message_on(f.object, :name) %>
+  </div>
+  <div class="col-12 col-md-6 mb-4">
+            <%= f.submit "Send me reset password instructions",class: "form-control" %>
+    </div>
+    <%end%>
+
+</div>

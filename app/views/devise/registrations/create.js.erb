@@ -1,0 +1,13 @@
+<%unless @user.errors.blank?%>
+	<%@user.errors.messages.each do |key,value|%>
+		$("#<%=key%>").append("<%= error_message_on(@user, key)%>") 
+	 <%end%>
+<%else%>
+	$('#otp').modal("show");
+	$("#hidden_phone_number").val('<%=params[:user][:number]%>');
+	$("#user").val('<%=@user.id%>');
+	$('#otp-form').on('submit',function(){
+	$('#otp').modal('hide');
+	 });	 
+<%end%>
+

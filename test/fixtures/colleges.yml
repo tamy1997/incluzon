@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  required_services: MyString
+  career_stream: MyString
+  start_date: 2021-11-10 16:20:48
+  students: 1
+
+two:
+  required_services: MyString
+  career_stream: MyString
+  start_date: 2021-11-10 16:20:48
+  students: 1

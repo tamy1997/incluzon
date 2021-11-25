@@ -1,0 +1,42 @@
+<div class="page">
+	<div class="page-main">
+
+		<%=render "layouts/sidebar"%>
+		<div class="app-content main-content">
+			<div class="side-app">
+
+				<!--app header-->
+				<div class="app-header header top-header">
+					<div class="container-fluid">
+						<div class="d-flex ctm_side_bx">
+							<a class="header-brand" href="index.html">
+								
+							</a>
+							<div class="dropdown side-nav">
+								<div class="app-sidebar__toggle" data-toggle="sidebar">
+									<a class="open-toggle" href="#">
+										<i class="fa fa-bars header-icon mt-1"></i>
+									</a>
+									<a class="close-toggle" href="#">
+										<i class="fa fa-times header-icon mt-1"></i>
+									</a>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+				<div class="Appointments">
+	  				<div class="card m-3">
+			  			<div class="list-group-item">College Name:  <%=current_user.name%> </div>
+					   <div class="list-group-item">Services: <%=@college.required_services%></div>
+					   <div class="list-group-item">Career Streams: <%=@college.career_streams%></div>
+					   <div class="list-group-item">Start Date: <%=@college.start_date%></div>
+					   <div class="list-group-item">Students: <%=@college.students%></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+     

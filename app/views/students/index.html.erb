@@ -1,0 +1,293 @@
+<div class="page">
+			<div class="page-main">
+
+				<%=render "layouts/sidebar"%>
+				<!--aside closed-->
+
+				<div class="app-content main-content">
+					<div class="side-app">
+
+						<!--app header-->
+						<div class="app-header header top-header">
+							<div class="container-fluid">
+								<div class="d-flex ctm_side_bx">
+									<a class="header-brand" href="index.html">
+										<%=image_tag('dashboard_logo.png',class:"img-fluid")%>
+									</a>
+									<div class="dropdown side-nav">
+										<div class="app-sidebar__toggle" data-toggle="sidebar">
+											<a class="open-toggle" href="#">
+												<i class="fa fa-bars header-icon mt-1"></i>
+											</a>
+											<a class="close-toggle" href="#">
+												<i class="fa fa-times header-icon mt-1"></i>
+											</a>
+										</div>
+									</div>
+									
+								</div>
+							</div>
+						</div>
+						<!--/app header-->
+
+						
+
+						<!--Row-->
+						<div class="row">
+							<div class="col-xl-12 col-lg-12 col-md-12">
+								<div class="card">
+									<div class="card-body">
+										<div class="table_filter_bx">
+											<div class="tab_wrapper first_tab">
+												<div class="table_filter_control">
+													<ul class="nav nav-pills student_tabs" id="pills-tab" role="tablist">
+														<li class="nav-item" role="presentation">
+															<button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Mobile App</button>
+														</li>
+														<li class="nav-item" role="presentation">
+															<button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Bootcamp</button>
+														</li>
+														<!-- <li>
+															<%#=link_to "Add Student",new_student_path%>
+														</li>
+														<h3>Bulk Upload</h3>
+														<%#= form_tag import_students_path, multipart: true do %>
+														  <%#= file_field_tag :file %>
+														  <%#= submit_tag "Upload List of students" %>
+														<%# end %>
+														 -->
+
+															<li class="nav-item" role="presentation">
+																<button class="nav-link active" id="mystudent" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false" >Add Student</button>
+															</li>	 
+													</ul>
+													<ul class="nav nav-pills student_tabs" id="pills-tab" role="tablist">
+														<li class="nav-item" role="presentation">
+														<button class="nav-link active" id="csv" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false" >Upload Bulk student</button>
+														</li>
+													</ul>	
+												</div>
+												
+												<div class="tab-content" id="pills-tabContent">
+													<div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+														<div class="table-responsive">
+														<table class="table table-striped ctm-table">
+															<thead>
+															  <tr>
+																<th scope="col">Sr No.</th>
+																<th scope="col"> Name</th>
+																<th scope="col">Address</th>
+																<!-- <th scope="col">DOB</th> -->
+																<th scope="col">Email-ID</th>
+																<th scope="col">Gender</th>
+																<th scope="col">Specialization</th>
+																<th scope="col">Current year</th>
+																<th scope="col">Graduate Year</th>
+															  </tr>
+															</thead>
+															
+															<tbody>
+																<%@students.each do |student|%>
+															  <tr>
+																<td><%=student.id%></td>
+																<td><%=[student.first_name,student.last_name].join(' ')%></td>
+																<td><%=current_user.address%></td>
+																<%#=student.last_name%>
+																<!-- <td><%=student.dob%></td> -->
+																<td><%=student.email%></td>
+																<td><%=student.gender%></td>
+																<td><%=student.specialization%></td>
+																<td><%=student.current_year%></td>
+																<td><%=student.graduate_year%></td>
+																<%end%>
+															  </tr>
+															  
+															</tbody>
+														  </table>
+														</div>
+														  <div class="content_details">
+															<span class="content_btn total_count">Ready for Placement: </span>
+															<span class="content_btn">Male:<%=current_user.students.where(gender: "Male").count%> </span>
+															<span class="content_btn">Female:<%=current_user.students.where(gender: "Female").count%> </span>
+														</div>
+														<!-- <p class="mb-1 card_title">Top Performers</p>
+														<div class="row">
+															<div class="col-xl-12 col-lg-12 col-md-12">
+																<div class="card ctm_sub_card">
+																	<div class="card-body">
+																		<div class="row">
+																			<div class="col-lg-3">Image</div>
+																			<div class="col-lg-9">
+																				
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div> -->
+													</div>
+													<div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">.2..</div>
+												
+												</div>
+												
+											</div>
+										</div>
+										
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div><!-- end app-content-->
+			</div>
+
+
+			<div class="modal fade" id="student" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Enter your Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+                 	 	<div class="modal-body">
+                 
+                  		<%= form_for Student.new,class:"ctm-form",id: "student-form" do |f| %>
+				        <%=f.hidden_field :user_id,value: current_user.id%>
+			            <div class="row">
+			                   <div class="col-12 col-md-6 mb-4">
+			                <!-- <h4><span class="label label-default">Name</span></h4> -->
+			                        <%=f.label "First name" ,class: "form-label"%><br>
+			                        <%=f.text_field :first_name,class: "form-control"%>
+			                  	</div>
+			                        <div class="col-12 col-md-6 mb-4">
+			                          <%=f.label "Last name" ,class: "form-label"%><br>
+			                          <%=f.text_field :last_name,class: "form-control"%>
+			                        </div>
+	                    </div>
+			                <div class="row">
+				                  <div class="col-12 col-md-6 mb-4">
+				                       <%=f.label "Date Of Birth" ,class: "form-label"%><br>
+				                        <%=f.date_field :dob,class: "form-control"%>
+				                  	</div>
+				                    <div class="col-12 col-md-6 mb-4">
+				                          <%=f.label :email ,class: "form-label"%><br>
+				                          <%=f.text_field :email,class: "form-control"%>
+				                    </div>
+		                    </div>
+
+			                   	<div class="row">
+				                  	<div class="col-12 col-md-6 mb-4">
+				                       <%=f.label "Phone number" ,class: "form-label"%><br>
+				                        <%=f.text_field :number,class: "form-control"%>
+				                  	</div>
+				                    <div class="col-12 col-md-6 mb-4">
+			                          <%=f.label :specialization ,class: "form-label"%><br>
+			                          <%=f.select(:specialization,options_for_select(['Mechanical Engineer', 'Civil Engineer', 'Computer Science Engineer','Mathematics','Pharma']),{prompt: "Specialization"},'aria-label': "current_year",class: "form-select")%>
+			                        </div>
+		                    	</div>
+
+			                        <div class="row">
+					                  <div class="col-12 col-md-6 mb-4">
+					                       <%=f.label "current year" ,class: "form-label"%><br>
+					                        <%=f.select(:current_year,options_for_select(['1st year','2nd year','3rd year','4th year']),{prompt: "Current year"},class: "form-select",'aria-label': "current_year")%>
+					                  	</div>
+				                        <div class="col-12 col-md-6 mb-4">
+				                          <%=f.label "Graduate Year" ,class: "form-label"%><br>
+				                           <%=f.select(:graduate_year,options_for_select(['2019','2020','2021','2022','2023','2024','2025','2026']),{prompt: "Graduate year"},class: "form-select",'aria-label': "graduate_year")%>
+				                        </div>
+			                      </div> 
+
+			                        <div class="row">
+			                  			<div class="col-12 col-md-6 mb-4">
+				                      		 <%=f.label "Gender" ,class: "form-label"%><br>
+			                         		 <%= f.radio_button :gender, 'Male' %> MALE<br />
+				                         	 <%= f.radio_button :gender, 'Female' %> FEMALE<br />
+				                         	 <%= f.radio_button :gender, 'Others' %> Others<br />
+
+			                  			</div>
+			                        	<div class="col-12 col-md-6 mb-4">
+				                          <%=f.label :career_streams ,class: "form-label"%><br>
+				                          Data Analytics <%= f.check_box :career_streams,{multiple: true},'Data Analytics',nil  %><br>
+				                          Machine Learning <%= f.check_box :career_streams,{multiple: true},'Machine Learning',nil  %><br>
+				                          Deep Learning <%=f.check_box :career_streams,{multiple: true},'Deep Learning',nil%><br>
+				                          Full Stack Development <%=f.check_box :career_streams,{multiple: true},'Full Stack Development',nil%><br>
+				                          Mobile App Development <%=f.check_box :career_streams,{multiple: true},'Mobile App Development',nil%><br>Construction Management <%=f.check_box :career_streams,{multiple: true},'Construction Management',nil%><br>
+				                          MS Office Executive Training <%=f.check_box :career_streams,{multiple: true},'MS Office Executive Training',nil%><br>
+				                        </div>
+			                      </div>     
+			                    </div class="modal-footer" >
+			                  <%= f.submit "Submit", class: "btn ctm-form-btn" %>
+			            <%end%>
+						</div>
+      	</div>
+	</div>
+</div>
+
+
+
+<div class="modal fade" id="csv-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">What You Want to Perform?</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<input type="radio" name="JTP" id="upload" value="upload">Upload CSV<br> 
+					<div id = "show" style = "display: none;">
+						<%= form_tag import_students_path, multipart: true do %>
+						<%= file_field_tag :file %>
+						<%= submit_tag "Upload Students", class: "btn btn-primary" %>
+						<%end%>        
+					</div>
+					<input type="radio" name="JTP" id="download" value="download">Download CSV<br>
+					<div id = "show1" style="display: none;" >
+						<%=link_to "Click me to download csv", export_list_path(format: :csv) %>
+					</div>
+				</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	$("#mystudent").click(function(){
+    $("#student").modal("show");
+    $('#student-form').on('submit',function(){
+	$('#student').modal('hide');
+ });
+  });
+
+	$("#csv").click(function(){
+    $("#csv-modal").modal("show");
+    $('#csv-form').on('submit',function(){
+	$('#csv-modal').modal('hide');
+ });
+  });
+
+	$("#upload").click(function(){
+    $("#show").show();
+     $("#show1").hide();
+ });
+
+	$("#download").click(function(){
+    $("#show1").show();
+     $("#show").hide();
+ });
+	
+	
+	
+</script>
+
+	
+
+		<!-- </div>
+		<a href="#top" id="back-to-top">
+			<svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/></svg>
+		</a>
+
+		 Jquery js-->
+		<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+		 Bootstrap4 js-->
+	<!-- 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
+ 

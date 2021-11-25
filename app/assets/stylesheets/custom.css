@@ -1,0 +1,141 @@
+
+/* Sign up page css Start */
+.sign_body{
+    background-color: #eee;
+    padding: 15px;
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.sign_up_section{
+    background-color: #fff;
+    border-radius: 30px;
+    height: 92vh;
+    width: 100%;  
+    position: relative; 
+}
+.header_sign_page{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+.header_menu{
+    border-left: 3px solid #767676;
+        padding-left: 10px;
+        margin-left: 10px;
+}
+.header_menu a{
+    color: #fe5f90;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 22px;
+}
+.form_page_heading{
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 20px;
+}
+.ctm-form .form-control,
+.ctm-form .form-select{
+    border-radius: 12px;
+        height: 55px;
+        background-color: #eee;
+        color: #979797;
+        border: none;
+}
+
+.ctm-form .form-control::placeholder{
+    color: #979797;
+}
+.ctm-form-btn{
+    float: right;
+    background: #ffc000;
+    border: navajowhite;
+    color: #000;
+    font-weight: 600;
+}
+.ctm-form .form-control:focus{
+    box-shadow: none;
+}
+/* Sign up page css End */
+
+/* Sign in page css Start */
+.form_page_sub_h{
+    margin-top: 25px;
+}
+.sign_up_bx{
+    text-align: center;
+    margin: 0 auto;
+}
+.form_page_pink_h {
+    color: #fe5f90;
+    font-size: 30px;
+    font-weight: bolder;
+}
+.ctm_signin_form{
+    margin: 20px 0;
+}
+.ctm_signin_form .ctm-form-btn{
+    float: none;
+}
+.circle_color_bx{
+    display: flex;
+    justify-content: center;
+}
+.circle_color_bx>div {
+    margin: 5px;
+}
+.yellow_circle{
+    background-color: #ffc000;
+    width:20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.green_circle{
+    background-color: #127d72;
+    width:20px;
+    height: 20px;
+    border-radius: 50%;
+}
+.pink_circle{
+    background-color: #fd6997;
+    width:20px;
+    height: 20px;
+    border-radius: 50%;
+}
+.form_bottom_link a{
+    color: #000;
+    font-weight: 600;
+    text-decoration: none;
+}
+.bg_img_bx{
+    position: absolute;
+    bottom: 130px;
+    right: 0;
+}
+.image_bg_signup {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    transform: rotate(180deg);
+    display: flex;
+    justify-content: flex-end;
+}
+.image_bg_signup img{
+    width: 70%;
+}
+/* Sign in page css End */
+
+@media only screen and (max-width: 768px){
+    .sign_up_section{
+        height: auto;
+        padding-bottom: 30px;
+    }
+}
+
+
+

@@ -1,0 +1,38 @@
+<div class="container">
+<br><br>
+  <%= form_for(@college,class:"ctm-form") do |f| %>
+  <%=f.hidden_field :user_id,value: current_user.id%>
+            <div class="row">
+                   <div class="col-12 col-md-6 mb-4">
+                
+                        <%=f.label :required_services ,class: "form-label"%>
+                        Training <%= f.check_box :required_services, {multiple: true}, 'Training', nil %><br>
+                        Placements <%= f.check_box :required_services,{multiple: true},'Placements',nil %><br>
+                        Internships <%= f.check_box :required_services,{multiple: true},'Internships',nil %><br>
+                        All Of the Above <%=f.check_box :required_services,{multiple: true},['Training','Placements','Internships'],nil%><br>
+                  </div>
+                        <div class="col-12 col-md-6 mb-4">
+                          <%=f.label :career_streams ,class: "form-label"%><br>
+                          Data Analytics <%= f.check_box :career_streams,{multiple: true},'Data Analytics',nil  %><br>
+                          Machine Learning <%= f.check_box :career_streams,{multiple: true},'Machine Learning',nil  %><br>
+                          Deep Learning <%=f.check_box :career_streams,{multiple: true},'Deep Learning',nil%><br>
+                          Full Stack Development <%=f.check_box :career_streams,{multiple: true},'Full Stack Development',nil%><br>
+                          Mobile App Development <%=f.check_box :career_streams,{multiple: true},'Mobile App Development',nil%><br>Construction Management <%=f.check_box :career_streams,{multiple: true},'Construction Management',nil%><br>
+                          MS Office Executive Training <%=f.check_box :career_streams,{multiple: true},'MS Office Executive Training',nil%><br>
+                        </div>
+                      </div>
+                <div class="row">
+                  <div class="col-12 col-md-6 mb-4">
+                      <%=f.label "Tentative Start Date"%>
+                      <%= f.date_field :start_date,class: "form-control" %><br>
+                   </div>
+
+                  <div class="col-12 col-md-6 mb-4">
+                      <%=f.label "Number Of Students"%>
+                      <%= f.text_field :students,class: "form-control" %><br>
+                  </div>  
+                 </div>
+                </div class="modal-footer" >
+                  <%= submit_tag "Submit", class: "btn btn-primary" %>
+            <%end%>
+</div>

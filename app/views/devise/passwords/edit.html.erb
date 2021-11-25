@@ -1,0 +1,26 @@
+<h2>Change your password</h2>
+<div class="container">
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <%= f.hidden_field :reset_password_token %>
+
+<%#= render "devise/shared/error_messages", resource: resource %>
+  <div class="row">
+      <div class="col-12 col-md-6 mb-4">
+          <%=f.label :password,"New Password"%>
+          <%if @minimum_password_length %>
+         <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+          <% end %>
+    <%= f.password_field :password, autofocus: true, autocomplete: "new-password",class: "form-control" ,placeholder: "new-password*", 'aria-label': "College Name", :required => true %>
+  </div>
+        <div  class="col-12 col-md-6 mb-4">
+            <%= f.label :password_confirmation, "Confirm new password" %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "new-password",class: "form-control" ,placeholder: "confirm-password*", 'aria-label': "College Name", :required => true  %>
+        </div>
+        <div class="col-12 col-md-6 mb-4">
+            <%= f.submit "Change my password",class: "form-control"  %>
+        </div>
+    <%#= error_message_on(f.object, :name) %>
+   <%end%>
+  </div>
+</div>
