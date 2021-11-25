@@ -98,7 +98,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   config.action_mailer.delivery_method = :smtp
  # host = 'example.com' #replace with your own url
-  config.action_mailer.default_url_options = { host: 'https://incluzon.herokuapp.com/' }
+  config.action_mailer.default_url_options = { host: 'incluzon.herokuapp.com/' }
    config.action_mailer.smtp_settings = {
    :address              => "smtp.gmail.com",
    :port                 => 587,
