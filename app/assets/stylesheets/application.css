@@ -15,7 +15,7 @@
  *= require_self
  */
 @import "dashboard/style"
-@import "stylesheets/tabs"
+@import "tabs/style"
 
 
 
