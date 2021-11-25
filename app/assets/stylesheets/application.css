@@ -11,12 +11,11 @@
  * It is generally better to create a new file per style scope.
  *
  *= require bootstrap
+ *= require dashboard/style
+ *= require tabs/style
  *= require_tree .
  *= require_self
  */
-@import "dashboard/style";
-@import "tabs/style";
-
 
 
 
