@@ -14,8 +14,8 @@
  *= require_tree .
  *= require_self
  */
-@import "dashboard/style";
-@import "stylesheets/tabs";
+@import "dashboard/style"
+@import "stylesheets/tabs"
 
 
 
