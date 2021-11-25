@@ -16,16 +16,10 @@
     
   </head>
   <%#debugger%>
+
   <body class="<%= user_signed_in? ? "app sidebar-mini light-mode default-sidebar" : "sign_body"%>"
     >
-
-
-    <%# if notice %>
-    
-    <%# end %>
-    <% if alert %>
-      <p class="alert alert-danger"><%= alert %></p>
-    <% end %>
     <%= yield %>
   </body>
+
 </html>
